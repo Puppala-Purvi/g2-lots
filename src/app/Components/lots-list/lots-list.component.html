@@ -3,11 +3,14 @@
   [scrollable]="true">
   <ng-template pTemplate="header">
     <tr>
-      <th>Lot Number</th>
       <th>Photo</th>
+      <th>Lot Number</th>
       <th>Auction Date</th>
       <th>Lot Description</th>
       <th>Yard Name</th>
+      <th>Min Bid</th>
+      <th>Current Bid</th>
+      <th>Start Bid</th>
     </tr>
   </ng-template>
   <!--      @if(unAssignedLots){-->
@@ -22,11 +25,19 @@
   <!--      @if(assignedLots){-->
   <ng-template pTemplate="body" let-customer>
     <tr>
-      <td>{{customer.lot_number}}</td>
       <td><img [src]="customer.lot_thumbnail_image_path"  width="60" class="shadow-4" /></td>
-      <td>None</td>
+      <td>{{customer.lot_number}}</td>
+      <td>{{ customer.auction_date | date:'MMM dd, yyyy'}}<br> <span style="font-size: 0.8rem;">{{ customer.auction_date | date:"hh:mm a" }}</span>
+      </td>
       <td>{{customer.lot_desc}}</td>
-      <td>none</td>
+      <td>{{customer.auction_host_name}}</td>
+      <td>{{customer.min_bid_amount | currency}}</td>
+      <td>@if(customer.current_bid_amount){
+      {{customer.current_bid_amount |  currency}}}
+      @else{
+        none
+      }</td>
+      <td>{{customer.default_start_bid_amount |  currency}}</td>
     </tr>
   </ng-template>
 </p-table>

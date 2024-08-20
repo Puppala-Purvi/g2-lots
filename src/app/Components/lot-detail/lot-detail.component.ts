@@ -1,24 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import { CardModule } from 'primeng/card';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {CardModule} from 'primeng/card';
 import {LotServiceService} from "../../../services/lot-service.service";
-import {Button} from "primeng/button";
+import {Button, ButtonModule} from "primeng/button";
+import {CurrencyPipe, DatePipe, NgForOf, NgOptimizedImage} from "@angular/common";
+import {TableModule} from "primeng/table";
+
 @Component({
   selector: 'app-lot-detail',
   standalone: true,
-  imports: [CardModule, Button],
+  imports: [CardModule, ButtonModule, NgOptimizedImage, NgForOf, TableModule, CurrencyPipe, DatePipe],
   templateUrl: './lot-detail.component.html',
-  styleUrl: './lot-detail.component.css'
+  styleUrl: './lot-detail.component.css',
+  encapsulation:ViewEncapsulation.None
 })
 export class LotDetailComponent  implements OnInit {
   lots!: any[];
-  lotImageSrc!:any;
   constructor(private lotService:LotServiceService) {
   }
   ngOnInit() {
-    this.lotService.getUnassignedLotList().subscribe((data:any)=>{
+    this.lotService.getAssignedLotList().subscribe((data:any)=>{
       console.log(data);
-      this.lots=data.
-      this.lotImageSrc=data.response.lot_thumbnail_image_path;
+      this.lots=data.response.docs;
     })
   }
 

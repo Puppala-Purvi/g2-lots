@@ -1,19 +1,25 @@
-<ng-template>
-<div class="card flex justify-content-center">
-  <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '360px' }">
+<div class="display" *ngFor="let lot of lots">
+<p-card  header="{{lot.auction_host_name}}" subheader="{{lot.lot_desc}}" [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
-      <img alt="Card" [src]="lotImageSrc" />
+      <img [src]="lot.lot_thumbnail_image_path" width="30" class="shadow-4" />
     </ng-template>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-      quas!
-    </p>
-    <ng-template pTemplate="footer">
-      <div class="flex gap-3 mt-1">
-        <p-button label="Cancel" severity="secondary" class="w-full" styleClass="w-full" />
-        <p-button label="Save" class="w-full" styleClass="w-full" />
-      </div>
-    </ng-template>
+  <div class="details">
+    <div>Lot #: <span style="font-size: 0.8rem;font-weight: normal">{{lot.lot_number}}</span></div>
+    <div>Min Bid:<span> {{lot.min_bid_amount | currency}}</span></div>
+    <div>Current Bid:<span>@if(lot.current_bid_amount){
+       {{lot.current_bid_amount |  currency}}}
+    @else{
+      none
+    }</span></div>
+    <div>Start Bid:<span>{{lot.default_start_bid_amount |  currency}}</span></div>
+    <div>Auction Date: <span style="color: red;display:inline;">{{lot.auction_date | date:'medium'}}</span></div>
+</div>
+<!--    <ng-template pTemplate="footer">-->
+<!--      <div class="flex gap-3 mt-1">-->
+<!--        <p-button label="Cancel" severity="secondary" class="w-full" />-->
+<!--        <p-button label="Save" class="w-full" />-->
+<!--      </div>-->
+<!--    </ng-template>-->
   </p-card>
 </div>
-</ng-template>
+

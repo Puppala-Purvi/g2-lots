@@ -5,11 +5,13 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {LotServiceService} from "../../../services/lot-service.service";
 import {LotsListComponent} from "../lots-list/lots-list.component";
+import {RouterLink, RouterOutlet} from "@angular/router";
+import {LotDetailComponent} from "../lot-detail/lot-detail.component";
 
 @Component({
   selector: 'app-lots-type-list',
   standalone: true,
-  imports: [TableModule, CommonModule, InputTextModule, ButtonModule, LotsListComponent],
+  imports: [TableModule, CommonModule, InputTextModule, ButtonModule, LotsListComponent, RouterLink, LotDetailComponent, RouterOutlet],
   templateUrl: './lots-type-list.component.html',
   styleUrl:'./lots-type-list.component.css',
   encapsulation:ViewEncapsulation.None

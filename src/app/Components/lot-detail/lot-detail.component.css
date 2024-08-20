@@ -1,0 +1,25 @@
+.p-card-header img {
+  width: 60%;
+  height: 10rem;
+  margin: 1rem;
+}
+.display {
+   display: inline-block;
+   padding: 0.4rem;
+ }
+.details {
+  width: 8.75rem;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight:bold;
+  line-height: 1.1rem;
+}
+span{
+font-size: 0.8rem;
+  font-weight: normal;
+}
+.p-card .p-card-body {
+  padding: 0.25rem 0rem 1rem 1.25rem;
+}
+
