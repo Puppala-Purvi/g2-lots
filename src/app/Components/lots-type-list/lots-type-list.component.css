@@ -1,0 +1,20 @@
+.sale-table .p-datatable .p-datatable-thead > tr > th{
+  background-image: url("../../../images/bg_header.png");
+  /*height: 1.8rem;*/
+  padding:0.3rem 0.3rem;
+}
+
+.p-button {
+  /*color: #ffffff;*/
+  /* border: 1px solid #3B82F6; */
+  background-color: whitesmoke;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 20px;
+  /*outline-color: transparent;*/
+  color: black;
+}
+.p-button:active{
+  background-color: azure;
+}
