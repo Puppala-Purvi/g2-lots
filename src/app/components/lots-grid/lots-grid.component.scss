@@ -1,0 +1,47 @@
+.p-card-header img {
+  border-top-left-radius: calc(1rem - 1px);
+  border-top-right-radius: calc(1rem - 1px);
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  padding: 30px;
+//width: 60%;
+// height: 10rem;
+// margin: 1rem;
+}
+.display {
+  display: inline-block;
+  padding: 0.4rem;
+}
+.details {
+  width: 8.75rem;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight:bold;
+  line-height: 1.1rem;
+}
+span{
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.p-card .p-card-body {
+  padding: 0.25rem 0rem 1rem 1.25rem;
+}
+.p-button .p-button-label {
+  transition-duration: 0.2s;
+  font-weight: bold;
+}
+
+.p-card{
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  border: 0;
+  border-radius: 1rem
+}
+.p-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)
+}
+

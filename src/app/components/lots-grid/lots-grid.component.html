@@ -1,0 +1,21 @@
+<div class="display" *ngFor="let lot of lots">
+  <p-card  header="{{lot.auction_host_name}}" subheader="{{lot.lot_desc}}" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img [src]="lot.lot_thumbnail_image_path" width="30" class="shadow-4" />
+    </ng-template>
+    <div class="details">
+      <div>Lot #: <span style="font-size: 0.8rem;font-weight: normal">{{lot.lot_number}}</span></div>
+      <div>Min Bid:<span> {{lot.min_bid_amount | currency}}</span></div>
+      <div>Current Bid:<span>@if(lot.current_bid_amount){
+        {{lot.current_bid_amount |  currency}}}
+      @else{
+        none
+      }</span></div>
+      <div>Start Bid:<span>{{lot.default_start_bid_amount |  currency}}</span></div>
+      <div>Auction Date: <span style="color: red;display:inline;">{{lot.auction_date | date:'medium'}}</span></div>
+    </div>
+  </p-card>
+</div>
+
+
+

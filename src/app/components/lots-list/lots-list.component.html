@@ -1,0 +1,36 @@
+<p-table
+  [value]="lots"
+  [scrollable]="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Photo</th>
+      <th>Lot Number</th>
+      <th>Auction Date</th>
+      <th>Lot Description</th>
+      <th>Yard Name</th>
+      <th>Min Bid</th>
+      <th>Current Bid</th>
+      <th>Start Bid</th>
+    </tr>
+  </ng-template>
+
+  <!--      @if(assignedLots){-->
+  <ng-template pTemplate="body" let-lot>
+    <tr>
+      <td><img [src]="lot.lot_thumbnail_image_path"  width="60" class="shadow-4" /></td>
+      <td>{{lot.lot_number}}</td>
+      <td>{{ lot.auction_date | date:'MMM dd, yyyy'}}<br> <span style="font-size: 0.8rem;">{{ lot.auction_date | date:"hh:mm a" }}</span>
+      </td>
+      <td>{{lot.lot_desc}}</td>
+      <td>{{lot.auction_host_name}}</td>
+      <td>{{lot.min_bid_amount | currency}}</td>
+      <td>@if(lot.current_bid_amount){
+        {{lot.current_bid_amount |  currency}}}
+      @else{
+        none
+      }</td>
+      <td>{{lot.default_start_bid_amount |  currency}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+

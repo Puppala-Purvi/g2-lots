@@ -1,0 +1,30 @@
+<!--<div class="sale-table">-->
+<!--  <p-table-->
+<!--    [scrollable]="true">-->
+<!--    <ng-template pTemplate="header">-->
+<!--      <tr class="head">-->
+<!--&lt;!&ndash;        <th><p-button label="Unassigned Lots ({{ unAssignedLots}})"></p-button></th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th><p-button label="Assigned Lots ({{assignedLots}})"></p-button></th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th><p-button label="Live Lots ({{liveLots}})"></p-button></th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th><p-button label="Bid Approval Lots ({{bidApprovalLots}})"></p-button></th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th><p-button label="Sold Lots ({{soldLots}})"></p-button></th>&ndash;&gt;-->
+<!--        -->
+<!--        <th></th>-->
+        <th [routerLink]="['/lot-list']" style="cursor: pointer"><i class="fa fa-list-ul" aria-hidden="true" style="color: white"></i></th>
+        <th [routerLink]="['/lot-detail']" style="cursor:pointer"><i class="fa fa-th" aria-hidden="true" style="color: white"></i></th>
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--  </p-table>-->
+<!--</div>-->
+<!--&lt;!&ndash;<app-lots-list></app-lots-list>&ndash;&gt;-->
+<!--<app-lots-grid></app-lots-grid>-->
+
+<nav>
+  <a>UnAssigned Lots({{unAssignedLots}})</a>
+  <a>Assigned Lots({{assignedLots}})</a>
+  <a>Live lots({{liveLots}})</a>
+  <a>Bid Approval Lots({{bidApprovalLots}})</a>
+  <a>Sold lots({{soldLots}})</a>
+  <i class="fa fa-list-ul" aria-hidden="true" style="color: white;cursor: pointer"></i>
+  <i class="fa fa-th" aria-hidden="true" style="color: white;cursor: pointer"></i>
+</nav>
