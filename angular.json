@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "g2-lots-types": {
+    "g2-lots": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/g2-lots-types",
+            "outputPath": "dist/g2-lots",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "g2-lots-types:build:production"
+              "buildTarget": "g2-lots:build:production"
             },
             "development": {
-              "buildTarget": "g2-lots-types:build:development"
+              "buildTarget": "g2-lots:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -10,5 +10,5 @@ import {LotsTypesComponent} from "./components/lots-types/lots-types.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'g2-lots-types';
+  title = 'g2-lots';
 }
