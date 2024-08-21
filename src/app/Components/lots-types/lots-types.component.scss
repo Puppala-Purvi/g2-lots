@@ -1,0 +1,48 @@
+.navbar
+{
+  width: 100%;
+  background: #4568DC;
+  background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+  background: linear-gradient(to right, #B06AB3, #4568DC);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+  margin: 0px;
+}
+.navbar > ul
+{
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.navbar > ul li
+{
+  display: inline-block;
+}
+.navbar > ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size:0.8rem;
+  display: inline-block;
+  text-align: center;
+  padding: 0.3rem 0;
+  margin: 1rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.navbar > ul li a::before {
+
+  background: #fff none repeat scroll 0 0;
+  bottom: -2px;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  transition: 0.5s;
+}
+.navbar > ul li a:hover::before
+{
+  background-color:#fff;
+  width: 100%;
+}
