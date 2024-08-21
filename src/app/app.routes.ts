@@ -1,21 +1,15 @@
 import { Routes } from '@angular/router';
-import {LotsTypeListComponent} from "./Components/lots-type-list/lots-type-list.component";
-import {LotDetailComponent} from "./Components/lot-detail/lot-detail.component";
-import {LotsListComponent} from "./Components/lots-list/lots-list.component";
-
-// export const routes: Routes = [
-//   { path: '', component: LotsTypeListComponent },
-//   { path: 'lots-list', component: LotsListComponent },
-//   { path: 'lot-detail', component: LotDetailComponent }
-// ];
+import {LotsTypesComponent} from "./components/lots-types/lots-types.component";
+import {LotsListComponent} from "./components/lots-list/lots-list.component";
+import {LotsGridComponent} from "./components/lots-grid/lots-grid.component";
 
 export const routes: Routes = [
   {
     path: '',
-    component: LotsTypeListComponent,
+    component: LotsTypesComponent,
     children: [
-      { path: 'lot-list', component: LotsListComponent },
-      { path: 'lot-detail', component: LotDetailComponent },
+      { path: 'list', component: LotsListComponent},
+      { path: 'grid', component: LotsGridComponent},
       // { path: '', component: LotsTypeListComponent }
     ]
   }

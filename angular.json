@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "g2-lots": {
+    "g2-lots-types": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,13 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/g2-lots",
+            "outputPath": "dist/g2-lots-types",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -27,16 +32,11 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "g2-lots:build:production"
+              "buildTarget": "g2-lots-types:build:production"
             },
             "development": {
-              "buildTarget": "g2-lots:build:development"
+              "buildTarget": "g2-lots-types:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,6 +85,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -92,7 +93,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -101,6 +102,6 @@
     }
   },
   "cli": {
-    "analytics": "b54aa45d-1379-4c9a-9e4b-226135db969e"
+    "analytics": false
   }
 }

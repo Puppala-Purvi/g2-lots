@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {LotsTypeListComponent} from "./Components/lots-type-list/lots-type-list.component";
-import {LotDetailComponent} from "./Components/lot-detail/lot-detail.component";
+import {LotsTypesComponent} from "./components/lots-types/lots-types.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LotsTypeListComponent, LotDetailComponent],
+  imports: [RouterOutlet, LotsTypesComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'g2-lots';
+  title = 'g2-lots-types';
 }

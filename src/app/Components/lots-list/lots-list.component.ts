@@ -1,40 +1,35 @@
-import {Component, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {PrimeTemplate} from "primeng/api";
+import {Component, OnInit, Output} from '@angular/core';
 import {TableModule} from "primeng/table";
-import {LotServiceService} from "../../../services/lot-service.service";
+import {LotsService} from "../../services/lots.service";
 import {CurrencyPipe, DatePipe} from "@angular/common";
-import EventEmitter from "node:events";
 
 @Component({
   selector: 'app-lots-list',
   standalone: true,
   imports: [
-    PrimeTemplate,
     TableModule,
     DatePipe,
     CurrencyPipe
   ],
   templateUrl: './lots-list.component.html',
-  styleUrl: './lots-list.component.css',
-  encapsulation:ViewEncapsulation.None
+  styleUrl: './lots-list.component.scss'
 })
-export class LotsListComponent implements OnInit{
-  customers!: any[];
+export class LotsListComponent implements OnInit {
+  lots!: any[];
   unAssignedLots=false;
   assignedLots=false;
 
-  @Output() showList = new EventEmitter();
-  constructor(private lotService:LotServiceService) {
+  constructor(private lotService:LotsService) {
   }
 
   ngOnInit() {
-    this.lotService.getUnassignedLotList().subscribe((data:any)=>{
-      console.log(data);
-      this.customers=data.response.docs;
-    })
+    // this.lotService.getUnassignedLotList().subscribe((data:any)=>{
+    //   console.log(data);
+    //   this.customers=data.response.docs;
+    // })
     this.lotService.getAssignedLotList().subscribe((data:any)=>{
       console.log(data);
-      this.customers=data.response.docs;
+      this.lots=data.response.docs;
     })
     // this.lotService.getLiveLotList().subscribe((data:any)=>{
     //   console.log(data);
