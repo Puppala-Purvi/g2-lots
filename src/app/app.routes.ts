@@ -4,13 +4,9 @@ import {LotsListComponent} from "./components/lots-list/lots-list.component";
 import {LotsGridComponent} from "./components/lots-grid/lots-grid.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: LotsTypesComponent,
-    children: [
-      { path: 'list', component: LotsListComponent},
-      { path: 'grid', component: LotsGridComponent},
-      // { path: '', component: LotsTypeListComponent }
-    ]
-  }
+  {path:'',component:LotsTypesComponent},
+  { path: 'list', component: LotsListComponent },
+  { path: 'grid', component: LotsGridComponent },
+  // { path: '', redirectTo: '/list', pathMatch: 'full' }
 ];
+

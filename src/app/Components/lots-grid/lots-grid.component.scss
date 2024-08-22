@@ -88,22 +88,19 @@ span{
 }
 .badge {
   position: absolute;
-  top:12rem;
-  left:0.9rem;
-  background-color:darkgray;
+  bottom: 17.2rem;
+  left: 0.3rem;
+  background-color: darkgray;
   display: inline-block;
-  padding: .35em .65em;
+  padding: 0.35em 0.65em;
   font-size: 0.8rem;
   font-weight: normal;
   line-height: 1;
-  color: #fff;
+  color: black;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  //margin-top: -3.8rem;
-  //margin-left: -0.5rem;
 }
-
 .p-tooltip .p-tooltip-text {
   background-color: darkgray !important;
   color:black;

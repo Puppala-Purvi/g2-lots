@@ -6,6 +6,7 @@
   background: linear-gradient(to right, #B06AB3, #4568DC);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
   margin: 0px;
+  border-radius: 2rem;
 }
 .navbar > ul
 {
@@ -29,6 +30,7 @@
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
+  cursor: pointer;
 }
 .navbar > ul li a::before {
 
@@ -45,4 +47,11 @@
 {
   background-color:#fff;
   width: 100%;
+}
+.navbar > ul li a .active-link {
+  font-weight: bold;
+  border-bottom: 2px solid #fff; /* Add an underline to the active link */
+}
+.navbar > ul li :focus{
+  background-color: #B06AB3;
 }

@@ -1,8 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {LotsService} from "../../services/lots.service";
 import {CardModule} from "primeng/card";
 import {CurrencyPipe, DatePipe, NgForOf} from "@angular/common";
 import {TooltipModule} from "primeng/tooltip";
+import {map, tap} from "rxjs";
+import {LotTypeService} from "../../services/lot-type.service";
 
 @Component({
   selector: 'app-lots-grid',
@@ -19,14 +21,23 @@ import {TooltipModule} from "primeng/tooltip";
   encapsulation:ViewEncapsulation.None
 
 })
-export class LotsGridComponent implements OnInit{
-  lots!: any[];
-  constructor(private lotService:LotsService) {
+export class LotsGridComponent implements OnInit {
+  @Input()
+  lots: any[]=[];
+  constructor(private lotService: LotsService, private lotTypeService: LotTypeService) {
   }
+
   ngOnInit() {
-    this.lotService.getAssignedLotList().subscribe((data:any)=>{
-      console.log(data);
-      this.lots=data.response.docs;
-    })
+    this.lotTypeService.lotTypeEmitter.subscribe({
+      next: (apiCall: any) => {
+        apiCall.pipe(
+          map((data: any) => data.response.docs),
+          tap((docs: any[]) => {
+            this.lots = docs;
+          })
+        ).subscribe();
+      }
+    });
+
   }
 }

@@ -2,12 +2,12 @@
   <p-card  header="{{lot.auction_host_name}}" subheader="{{lot.lot_desc}}" [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
       <img [src]="lot.lot_thumbnail_image_path" width="30" class="shadow-4" />
-      <div  pTooltip=" at {{lot.auction_date | date:'shortTime'}}"  class="auction-time"  tooltipPosition="bottom" >{{lot.auction_date | date:'mediumDate'}}</div>
+      <div  pTooltip="at {{lot.auction_date | date:'shortTime'}}"  class="auction-time"  tooltipPosition="bottom" >@if(lot.auction_date){{{lot.auction_date | date:'mediumDate'}}} @else{<span>NOT ASSIGNED</span>}</div>
     </ng-template>
     <div class="details">
       <div><span class="float-start badge rounded-pill">{{lot.lot_number}}</span></div>
       <div class="bottom-row">
-      <div class="min-bid">Min Bid:</div><span class="min-bid-val"> {{lot.min_bid_amount | currency}}</span>
+      @if(lot.min_bid_amount){<div class="min-bid">Min Bid:</div><span class="min-bid-val"> {{lot.min_bid_amount | currency}}</span>}
       <div class="curr-bid">Current Bid:</div>
         <span class="curr-bid-val">@if(lot.current_bid_amount){
         {{lot.current_bid_amount |  currency}}}

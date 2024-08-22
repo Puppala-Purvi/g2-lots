@@ -1,7 +1,9 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, input, OnInit, Output} from '@angular/core';
 import {TableModule} from "primeng/table";
 import {LotsService} from "../../services/lots.service";
 import {CurrencyPipe, DatePipe} from "@angular/common";
+import {LotTypeService} from "../../services/lot-type.service";
+import {map, tap} from "rxjs";
 
 @Component({
   selector: 'app-lots-list',
@@ -15,33 +17,24 @@ import {CurrencyPipe, DatePipe} from "@angular/common";
   styleUrl: './lots-list.component.scss'
 })
 export class LotsListComponent implements OnInit {
-  lots!: any[];
-  unAssignedLots=false;
-  assignedLots=false;
+  @Input()
+  lots: any[]=[];
 
-  constructor(private lotService:LotsService) {
+  constructor(private lotService:LotsService,private lotTypeService:LotTypeService) {
   }
 
   ngOnInit() {
-    // this.lotService.getUnassignedLotList().subscribe((data:any)=>{
-    //   console.log(data);
-    //   this.customers=data.response.docs;
-    // })
-    this.lotService.getAssignedLotList().subscribe((data:any)=>{
-      console.log(data);
-      this.lots=data.response.docs;
-    })
-    // this.lotService.getLiveLotList().subscribe((data:any)=>{
-    //   console.log(data);
-    //   this.customers=data.response.docs;
-    // })
-  }
 
-  unAssignedLotsList(){
-    this.unAssignedLots=true;
-  }
+    this.lotTypeService.lotTypeEmitter.subscribe({
+      next: (apiCall: any) => {
+        apiCall.pipe(
+          map((data: any) => data.response.docs),
+          tap((docs: any[]) => {
+            this.lots = docs;
+          })
+        ).subscribe();
+      }
+    });
 
-  assignedLotsList() {
-    this.assignedLots=true;
   }
 }
