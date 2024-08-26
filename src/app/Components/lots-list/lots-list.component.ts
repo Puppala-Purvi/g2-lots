@@ -1,9 +1,11 @@
-import {Component, EventEmitter, Input, input, OnInit, Output} from '@angular/core';
-import {TableModule} from "primeng/table";
+import {Component, EventEmitter, Input, input, OnInit, Output, ViewChild} from '@angular/core';
+import {Table, TableLazyLoadEvent, TableModule} from "primeng/table";
 import {LotsService} from "../../services/lots.service";
-import {CurrencyPipe, DatePipe} from "@angular/common";
+import {CommonModule, CurrencyPipe, DatePipe, NgStyle} from "@angular/common";
 import {LotTypeService} from "../../services/lot-type.service";
 import {map, tap} from "rxjs";
+import {LazyLoadEvent, SortEvent} from "primeng/api";
+import {SkeletonModule} from "primeng/skeleton";
 
 @Component({
   selector: 'app-lots-list',
@@ -11,30 +13,36 @@ import {map, tap} from "rxjs";
   imports: [
     TableModule,
     DatePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    SkeletonModule,
+    NgStyle,
+    CommonModule
   ],
   templateUrl: './lots-list.component.html',
   styleUrl: './lots-list.component.scss'
 })
 export class LotsListComponent implements OnInit {
-  @Input()
-  lots: any[]=[];
+  @Input() typelots: any[] = [];
+  @Input() totalRecords: number = 0;
 
-  constructor(private lotService:LotsService,private lotTypeService:LotTypeService) {
-  }
+
+
 
   ngOnInit() {
-
-    this.lotTypeService.lotTypeEmitter.subscribe({
-      next: (apiCall: any) => {
-        apiCall.pipe(
-          map((data: any) => data.response.docs),
-          tap((docs: any[]) => {
-            this.lots = docs;
-          })
-        ).subscribe();
-      }
-    });
-
+    // console.log(this.assignedlots)
+    // this.lotTypeService.lotTypeEmitter.subscribe({
+    //   next: (apiCall: any) => {
+    //     apiCall.pipe(
+    //       map((data: any) => data.response.docs),
+    //       tap((docs: any[]) => {
+    //         this.lots = docs;
+    //       })
+    //     ).subscribe();
+    //   }
+    // });
   }
+
+
+
+
 }

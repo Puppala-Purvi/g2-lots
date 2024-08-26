@@ -21,23 +21,23 @@ import {LotTypeService} from "../../services/lot-type.service";
   encapsulation:ViewEncapsulation.None
 
 })
-export class LotsGridComponent implements OnInit {
-  @Input()
-  lots: any[]=[];
+export class LotsGridComponent implements OnInit{
+  @Input() typelots:any[] = [];
   constructor(private lotService: LotsService, private lotTypeService: LotTypeService) {
   }
 
   ngOnInit() {
-    this.lotTypeService.lotTypeEmitter.subscribe({
-      next: (apiCall: any) => {
-        apiCall.pipe(
-          map((data: any) => data.response.docs),
-          tap((docs: any[]) => {
-            this.lots = docs;
-          })
-        ).subscribe();
-      }
-    });
-
+    console.log(this.typelots)
+  //   this.lotTypeService.lotTypeEmitter.subscribe({
+  //     next: (apiCall: any) => {
+  //       apiCall.pipe(
+  //         map((data: any) => data.response.docs),
+  //         tap((docs: any[]) => {
+  //           this.lots = docs;
+  //         })
+  //       ).subscribe();
+  //     }
+  //   });
+  //
   }
 }

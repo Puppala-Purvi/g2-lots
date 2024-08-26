@@ -1,20 +1,21 @@
 <nav class="navbar">
   <ul>
-  <li><a (click)="loadData('unassigned')">UnAssigned-Lots @if(unAssignedLots!=null){({{unAssignedLots}})}</a></li>
-    <li><a (click)="loadData('assigned')">Assigned Lots @if(assignedLots!=null){({{assignedLots}})}</a></li>
-    <li><a (click)="loadData('live')">Live lots @if(liveLots!=null){({{liveLots}})}</a></li>
-    <li><a (click)="loadData('bidApproval')">Bid Approval Lots @if(bidApprovalLots!=null){({{bidApprovalLots}})}</a></li>
-    <li><a (click)="loadData('sold')">Sold lots @if(soldLots!=null){({{soldLots}})}</a></li>
+    <li><img ngSrc="../src/app/images/logo.svg" alt="copartLogo" height="53" width="140"></li>
+  <li><a (click)="loadData('unassigned')"  [ngClass]="{'active': isActive('unassigned')}">UnAssigned-Lots @if(unAssignedLotsNum!=null){({{unAssignedLotsNum}})}</a></li>
+    <li><a (click)="loadData('assigned')" [ngClass]="{'active': isActive('assigned')}">Assigned Lots @if(assignedLotsNum!=null){({{assignedLotsNum}})}</a></li>
+    <li><a (click)="loadData('live')" [ngClass]="{'active': isActive('live')}">Live lots @if(liveLotsNum!=null){({{liveLotsNum}})}</a></li>
+    <li><a (click)="loadData('bidApproval')" [ngClass]="{'active': isActive('bidApproval')}">Bid Approval Lots @if(bidApprovalLotsNum!=null){({{bidApprovalLotsNum}})}</a></li>
+    <li><a (click)="loadData('sold')" [ngClass]="{'active': isActive('sold')}">Sold lots @if(soldLotsNum!=null){({{soldLotsNum}})}</a></li>
 
-    <li (click)="listView()" ><a><i class="fa fa-list-ul" aria-hidden="true" style="color: #fff;cursor: pointer;font-size:1rem;"></i></a></li>
-    <li (click)="gridView()"><a><i class="fa fa-th" aria-hidden="true" style="color: #fff;cursor: pointer;font-size:1rem;"></i></a></li>
-
+    <li><a (click)="listView()"  [ngClass]="{'active': listViewBoolean}"><i class="fa fa-list-ul" aria-hidden="true" style="color: #fff;cursor: pointer;font-size:1rem;"></i></a></li>
+    <li><a (click)="gridView()"  [ngClass]="{'active': !listViewBoolean}"><i class="fa fa-th" aria-hidden="true" style="color: #fff;cursor: pointer;font-size:1rem;"></i></a></li>
   </ul>
 </nav>
 
 @if(listViewBoolean){
-<app-lots-list></app-lots-list>
+<app-lots-list [typelots]="lotsTypesList"  ></app-lots-list>
 }
 @else{
-<app-lots-grid></app-lots-grid>
+<app-lots-grid [typelots]="lotsTypesList" ></app-lots-grid>
+
 }

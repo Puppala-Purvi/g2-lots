@@ -1,4 +1,4 @@
-<div class="display" *ngFor="let lot of lots">
+<div class="display" *ngFor="let lot of typelots">
   <p-card  header="{{lot.auction_host_name}}" subheader="{{lot.lot_desc}}" [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
       <img [src]="lot.lot_thumbnail_image_path" width="30" class="shadow-4" />
