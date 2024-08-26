@@ -1,0 +1,48 @@
+.navbar
+{
+  width: 100%;
+  background: #4568DC;
+  background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+  background: linear-gradient(to right, #B06AB3, #4568DC);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+  margin: 0px;
+  border-radius: 2rem;
+}
+.navbar > ul
+{
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.navbar > ul li
+{
+  display: inline-block;
+}
+.navbar > ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size:0.8rem;
+  display: inline-block;
+  text-align: center;
+  padding: 0.3rem 0;
+  margin: 1rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.navbar > ul li :focus{
+  background-color: #B06AB3;
+}
+
+.navbar a.active {
+  //background-color: #007bff;
+  background: -webkit-linear-gradient(to right, rgba(176, 106, 179, 1), rgba(69, 104, 220, 1));
+  background: linear-gradient(to left, rgba(176, 106, 179, 1), rgba(69, 104, 220, 0));
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+  padding:1rem;
+  border-radius: 2rem;
+  color: black;
+}
