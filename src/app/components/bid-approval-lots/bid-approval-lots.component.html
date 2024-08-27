@@ -1,0 +1,69 @@
+<p-table
+  [value]="bidApprovalLots"
+  [scrollable]="true"
+  *ngIf="isListView"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Photo</th>
+      <th pSortableColumn="lot_number" > Lot_Number <p-sortIcon field="lot_number" ></p-sortIcon></th>
+      <th>Auction Date</th>
+      <th>Lot Description</th>
+      <th>Yard Name</th>
+      <th>Min Bid</th>
+      <th>Current Bid</th>
+      <th>Start Bid</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-lot>
+    <tr>
+      <td><img [src]="lot.lot_thumbnail_image_path"  width="60" class="shadow-4" /></td>
+      <td>{{lot.lot_number}}</td>
+      <td>@if(lot.auction_date){{{ lot.auction_date | date:'MMM dd, yyyy'}}<br> <span style="font-size: 0.8rem;">{{ lot.auction_date | date:"hh:mm a" }}</span>}
+      @else {Not Assigned}
+      </td>
+      <td>{{lot.lot_desc}}</td>
+      <td>{{lot.auction_host_name}}</td>
+      <td>@if(lot.min_bid_amount ){{{lot.min_bid_amount | currency}}}
+      @else {none}
+      </td>
+      <td>@if(lot.current_bid_amount){
+        {{lot.current_bid_amount |  currency}}}
+      @else{
+        none
+      }</td>
+      <td>{{lot.default_start_bid_amount |  currency}}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="loadingbody">
+    <tr style="height:46px">
+      <td>
+        <p-skeleton [ngStyle]="{'width':'30%'}"></p-skeleton>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<div *ngIf="!isListView">
+  <p-card class="display"  *ngFor="let lot of bidApprovalLots" header="{{lot.auction_host_name}}" subheader="{{lot.lot_desc}}" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img [src]="lot.lot_thumbnail_image_path" width="30" class="shadow-4" />
+      <div  pTooltip="at {{lot.auction_date | date:'shortTime'}}"  class="auction-time"  tooltipPosition="bottom" >@if(lot.auction_date){{{lot.auction_date | date:'mediumDate'}}} @else{<span>NOT ASSIGNED</span>}</div>
+    </ng-template>
+    <div class="details">
+      <div><span class="float-start badge rounded-pill">{{lot.lot_number}}</span></div>
+      <div class="bottom-row">
+        @if(lot.min_bid_amount){<div class="min-bid">Min Bid:</div><span class="min-bid-val"> {{lot.min_bid_amount | currency}}</span>}
+        <div class="curr-bid">Current Bid:</div>
+        <span class="curr-bid-val">@if(lot.current_bid_amount){
+          {{lot.current_bid_amount |  currency}}}
+        @else{
+          none
+        }</span>
+        <div class="start-bid">Start Bid:</div>
+        <span class="start-bid-val">{{lot.default_start_bid_amount |  currency}}</span>
+      </div>
+    </div>
+  </p-card>
+</div>

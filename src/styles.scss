@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+body{
+  font-family:'Open Sans', sans-serif;
+}
+
+//Scrollbar
+::-webkit-scrollbar{
+  width:1rem;
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  //background: linear-gradient(to right, #B06AB3, #4568DC);
+  background-color: grey;
+  border-radius: 20px;
+  border-style: ridge;
+  cursor:pointer;
+  height:2rem !important;
+}
+
+//lots list table
+.p-datatable .p-datatable-thead > tr > th{
+  padding:0.5rem 0.5rem;
+}

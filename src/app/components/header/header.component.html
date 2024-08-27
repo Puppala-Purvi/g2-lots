@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <ul>
+<!--    <li><img ngSrc="../src/app/images/logo.svg" alt="copartLogo" height="53" width="140"></li>-->
+    <li><a routerLink="unassigned" routerLinkActive="active">UnAssigned-Lots @if(unAssignedLotsNum!=null){({{unAssignedLotsNum}})}</a></li>
+    <li><a routerLink="assigned" routerLinkActive="active">Assigned Lots @if(assignedLotsNum!=null){({{assignedLotsNum}})}</a></li>
+    <li><a routerLink="live" routerLinkActive="active">Live lots @if(liveLotsNum!=null){({{liveLotsNum}})}</a></li>
+    <li><a routerLink="bidapproval" routerLinkActive="active">Bid Approval Lots @if(bidApprovalLotsNum!=null){({{bidApprovalLotsNum}})}</a></li>
+    <li><a routerLink="sold" routerLinkActive="active">Sold lots @if(soldLotsNum!=null){({{soldLotsNum}})}</a></li>
+
+    <li><a (click)="listView()" [ngClass]="{'active': listViewBoolean}"><i class="fa fa-list-ul"></i></a></li>
+    <li><a (click)="gridView()" [ngClass]="{'active': !listViewBoolean}"><i class="fa fa-th"></i></a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+

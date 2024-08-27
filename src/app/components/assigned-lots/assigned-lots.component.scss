@@ -1,0 +1,139 @@
+
+//card css
+.p-card-header img {
+  border-top-left-radius: calc(1rem - 1px);
+  border-top-right-radius: calc(1rem - 1px);
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  padding-top: 20px;
+}
+.display {
+  display: inline-block;
+  padding: 0.6rem 0.5rem 0.3rem 0rem;
+  margin-left:0.4rem;
+}
+.details {
+  width: 8.75rem;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight:bold;
+  line-height: 1.1rem;
+}
+span{
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.p-card .p-card-body {
+  padding: 0.25rem 0rem 1rem 1.25rem;
+}
+.p-card .p-card-content {
+  padding: 0rem 0;
+}
+.p-button .p-button-label {
+  transition-duration: 0.2s;
+  font-weight: bold;
+}
+.p-card .p-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.p-card .p-card-subtitle {
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #6b7280;
+  text-align: center;
+}
+.p-card{
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  border: 0;
+  border-radius: 1rem;
+  position:relative;
+  word-wrap: break-word;
+}
+.p-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)
+}
+
+.auction-time {
+  position: absolute;
+  //background-color: #8bc34a;
+  background-color:blue;
+  color: #fff;
+  top: 8px;
+  right: 8px;
+  padding: 5px 10px 5px 10px;
+  font-size: .7rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  text-transform: uppercase;
+}
+
+.p-card {
+  &:hover {
+    .p-card-header img:hover{
+      transform: scale(1.03);
+    }
+  } }
+
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+.float-start {
+  float: left !important;
+}
+.badge {
+  position: absolute;
+  bottom: 17.2rem;
+  left: 0.3rem;
+  background-color: #E0E0E0;
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.p-tooltip .p-tooltip-text {
+  background-color: darkgray !important;
+  color:black;
+}
+.bottom-row{
+  padding-left:9rem;
+  display:flex;
+  justify-content:center;
+}
+.min-bid{
+  padding:0rem 1rem 0rem 0rem;
+  white-space: nowrap;
+}
+.min-bid-val{
+  margin-top:1rem;
+  margin-left:-4rem;
+}
+.curr-bid {
+  margin-bottom:1rem;
+  margin-left:1.7rem;
+  white-space: nowrap;
+}
+.start-bid{
+  padding:0rem 0.4rem 1rem 3.3rem;
+  white-space: nowrap;
+}
+.curr-bid-val{
+  margin-top:0.9rem;
+  margin-left:-3.9rem;
+}
+.start-bid-val{
+  margin-top:0.9rem;
+  margin-left:-3.3rem;
+}
